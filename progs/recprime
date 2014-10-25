@@ -1,0 +1,14 @@
+
+     p  where
+                   p = 2 fby nxprime(p);
+
+          nxprime(q) = m asa isprime(m)
+                       where
+                        m = (q+1) fby m+1;
+                       end fby nxprime(next q);
+
+          isprime(n) = (p*p gt k asa (p*p ge k) or ( k mod p eq 0))
+                       where
+                         k is current n ;
+                       end ;
+        end

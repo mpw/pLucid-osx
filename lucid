@@ -1,0 +1,7 @@
+if test -f $1.i
+then rm $1.i
+fi
+pass1 $1 | pass2 | pass3 | pass4 | pass5 $1
+if test -f $1.i
+then luval $1.i
+fi

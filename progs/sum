@@ -1,0 +1,9 @@
+sum( x , n )   where
+                 sum( xt , n )   =   ss  fby  sum( xx , next n )
+                                         where
+                                           ss   =   s  asa first n eq int ;
+                                           s    =   xt  fby  s + next xt ;
+                                           xx   =   xt wvr  first n < int ;
+                                           int  =   1  fby  int + 1 ;
+                                         end ;
+                end

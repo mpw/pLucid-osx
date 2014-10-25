@@ -1,0 +1,8 @@
+
+substr(W3,1,3) ^ `s' ^ substr(W3,3,3)
+where
+ W =`' fby letter ^ (W upon letter eq `z');
+ letter = alpha( index mod 26);
+ alpha(n) = substr(`abcdefghijklmnopqrstuvwxyz',n+1,n+1);
+ W3 = W whenever length(W) eq 3;
+end

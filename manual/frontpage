@@ -1,0 +1,40 @@
+.sp 2i
+.ps 36
+.ft 3
+.ce
+The
+.sp 0.5i
+.ce
+pLucid
+.sp 0.5i
+.ce
+Programming
+.sp 0.5i
+.ce
+Manual
+.sp 0.5i
+.ps 24
+.ce
+By
+.sp 0.5i
+.ce
+A.A.Faustini
+.sp 0.5i
+.ce
+S.G. Matthews
+.sp 0.5i
+.ce
+A.AG. Yaghi
+.sp 1i
+.ps 36
+.ce
+SEPTEMBER 1984
+.sp 1i
+.ps 12
+Copies of this manual and a pLucid distribution tape are
+available from A. Faustini, Department of Computer Science, Arizona
+State University, Tempe 85287, Arizona, USA (Please send a tape with
+any request)     
+
+.ft 1
+\(co        A. Faustini 1983

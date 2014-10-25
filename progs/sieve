@@ -1,0 +1,9 @@
+// to calculate the prime numbers using
+// the "sieve of Eratosthenes" method
+//
+sieve( N )
+    where
+     N = 2 fby N + 1;
+     sieve( i ) =
+       i fby sieve ( i whenever i mod first i ne 0 ) ;
+    end

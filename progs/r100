@@ -1,0 +1,11 @@
+1 fby "." fby decimalise(1)
+         where
+               base = next index * 100;
+               decimalise(expansion) = carry fby decimalise(newexp)
+                  where
+                     carry = if ( expansion*10 + 9) mod base >= 9 then
+                                     expansion*10 div base
+                             else (expansion*10 + next carry) div base fi;
+                     newexp = (expansion*10 + next carry) mod base;
+                  end;
+        end

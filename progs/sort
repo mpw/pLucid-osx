@@ -1,0 +1,26 @@
+// sort (shuttle sort or bubble sort, hard to say)  by P.Th. Pilgram
+// sorts input in growing order.
+
+yield ("error", in, 0)
+
+    where
+
+    yield (hist, insertion, t) =
+          ( if   c
+            then yield (k, next insertion, t+1) upon c
+            else k
+            fi )
+          where
+            c = t < ind ;
+          ind = 0 fby ind+1;
+            k = new (hist, insertion, t);
+          end ;
+
+    new (old, insertion, t) =
+          // "new" = first of "insertion" inserted into "old"
+          // old is defined in the segment 0...t-1.
+          if   first ( (t ne 0) and (old < insertion) )     // better: andalso
+          then old fby new (next old, insertion, t-1)
+          else insertion fby old
+          fi ;
+    end

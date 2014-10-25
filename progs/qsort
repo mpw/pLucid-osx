@@ -1,0 +1,10 @@
+ qsort(input)
+  where
+   qsort(x) = if iseod first next x then x else
+                     follow(qsort(low), first x fby qsort(hi)) fi
+    where
+      low = next x wvr next x < first x;
+      hi = next x wvr first x <= next x;
+      follow(a,b) = if not iseod a then a else b upon iseod a fi;
+     end;
+  end

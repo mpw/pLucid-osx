@@ -1,0 +1,14 @@
+This directory contains two shell scripts. You will have to
+decide on where you want to put these in your system. This may
+involve small changes to these shell_scripts and to the
+makefile in ../lu/p1 to ../lu/p6. Note lucomp and luval are the
+names used in the UNIX manual entry. (see ../lu/doc/lucid.1 )
+
+   I)  lucid <filename>   used to compile and run lucid
+       programmes.
+
+  II)  lucomp (filename> used to compile lucid programmes.
+
+
+ Note luval is not a shell script it is simple the a.out file
+      associated with pass6. (see makefile in ../lu/p6 )

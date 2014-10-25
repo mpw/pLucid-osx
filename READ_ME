@@ -1,0 +1,51 @@
+If you have Berkely 4.2  or System 5 or SUN O/S Version 4
+you should have little trouble with installating
+this on a 32 bit machine (see READ_ME in the evaluator directory). 
+
+If you are not running on UNIX or a UNIX-like system you will have
+to do a little work to get your Lucid interpreter working. In particular
+the directories p1 to p5 each produce a pass or filter each sucessive
+piping (in the UNIX sense) its input to the next. The code within
+each pass is reasonably straight forward. If you have a yacc of Your
+own you may want to
+remove the y.tab.c and y.tab.h directories and use your
+own yacc to generate these. If you do not have yacc you can use the
+y.tab.c and y.tab.h provided.
+
+There are 9 subdirectories:
+        p1              :Source for filter1 (lucid -> lucid parse tree(pt))
+                                          i.e. checks for syntax errors.
+        p2              :Source for filter2 (lucid pt -> lucid pt)
+                                          checks for nameclashes
+        p3              :Source for filter3 (lucid pt -> lucid pt)
+                                          expands upon and whenever.
+        p4              :Source for filter4(lucid pt->structured lucid pt)
+        p5              :Source for filter5 (s-lucid pt -> lucid i-code)
+	evaluator	:Source for the lucid evaluator
+        manual          :lucid programming manual/UNIX manual entry
+        progs           :Example lucid programs
+        shell_scripts   :Scripts for compiling and/or running
+                         lucid programs
+
+
+Installing lucid
+================
+
+ In directory p1 change the third line of file main.c to some
+ appropriate directory. It is currently
+
+ STRING incdir = "/ud/cscfac/faustini/lu/lib";
+
+ If you are running Berkley UNIX 4.2bsd or have the
+ make facility then all you then
+ do is to type
+
+     make all "DESTDIR=/the/directory/where/you/want/your/binary/progs"
+
+the makefile in this directory will do the rest.
+
+    E.g. at ASU we would enter
+
+         make all "DESTDIR=/usr/local/bin"
+
+

@@ -1,0 +1,7 @@
+square   where
+
+           square   =   0  fby  ( square + 2*ind + 1 ) ;
+
+           ind = 0 fby ind+1;
+
+         end

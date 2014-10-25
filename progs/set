@@ -1,0 +1,59 @@
+                case hd a of
+                "inter": intersection(b,c) ;
+                "union": union(b,c);
+                "member": member(b,c);
+                default:`illegal request';
+                end
+                where
+        union(x,y) = c asa isnull xlist where
+                x is current x;
+                y is current y;
+                xlist = x fby tl xlist;
+                xitem = hd xlist;
+                c = y fby
+                if not member(xitem,y) then
+                        xitem::c
+                else
+                        c
+                fi;
+        end;
+
+        intersection(x,y) = c asa isnull xlist where
+                x is current x;
+                y is current y;
+                c = nil fby
+                if member(xitem,y) then
+                        xitem::c
+                else
+                        c
+                fi;
+                xitem = hd xlist;
+                xlist = x fby tl xlist;
+                end;
+
+        member(x,y) = not isnull ylist asa done where
+                x is current x;
+                y is current y;
+                done = isnull ylist or if isatom yitem then
+                                yitem eq x
+                        else
+                                member(x,yitem)
+                        fi;
+                yitem = hd ylist;
+                ylist = y fby tl ylist;
+                end;
+
+        eqlist(x,y) =
+                if isnull x then
+                        isnull y
+                elseif isatom x then
+                        isatom y and x eq y
+                else
+                        eqlist(hd x, hd y) and eqlist(tl x, tl y)
+                fi;
+
+        b = hd tl a;
+        c = hd tl tl a;
+
+
+end

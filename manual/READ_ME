@@ -1,0 +1,17 @@
+                   This directory contains the pLucid manual in nroff
+format in the files
+                  frontpage.A
+                  abstract.B
+                  contents.C
+                  introduction.D
+                  expressions.E
+                  udf.F
+                  datatypes.G
+                  scope.H
+                  unix.I
+                  lucid.1            /* This is for the online manual entry */
+                  tabsandrules.J
+                  grammar.K  
+
+The command benson can be used to produce a copy of each of the above files
+on a benson or Varian electrostatic printer. Note this is in troff format.

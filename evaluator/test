@@ -1,0 +1,5 @@
+i*j
+where
+ i = 1 fby i+1;
+ j = 1 sby j+1;
+end

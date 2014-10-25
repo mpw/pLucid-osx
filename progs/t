@@ -1,0 +1,7 @@
+x + z where z = q where n= x where x=p;  end;
+                        q = n;
+                  end;
+            x = n where n = p;
+                        p = 1;
+                  end;
+     end

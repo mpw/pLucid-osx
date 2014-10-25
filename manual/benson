@@ -1,0 +1,4 @@
+: 'print $2 pages of file $1 on the benson'
+expfonts <$1 > aaf
+cat trmacs veqnchar aaf | eqn | 
+vtroff -o$2 -ms -3 nonie.b

@@ -1,0 +1,144 @@
+.TH plucid 1     ARIZONA STATE UNIVERSITY
+.SH NAME
+lucomp, luval \- plucid compiler and evaluator
+.SH SYNOPSIS
+.B lucid
+filename
+.B lucomp
+filename
+.PP
+.B luval
+[ option ] ... filename
+.SH DESCRIPTION
+plucid is a Warwick implementation of the language plucid
+which runs on the Berkley 4.1 UNIX. To run a plucid program
+it must first be compiled using
+.I lucomp
+
+.I lucomp
+compiles plucid programs into intermediate expression code.
+If the input argument is the file name "file" then
+the intermediate expression code will be output to a file named "file.i",
+which is then used as an argument to
+.I luval.
+
+.PP
+.I luval
+evaluates the intermediate code in a file whose name must end with ".i".
+The following options are understood by
+.I luval:
+.IP "-d" 8
+Produce a dump of the intermediate expression file onto the
+standard error (usually the terminal).
+.IP "-c" 8
+Forces the evaluator into character input mode. In this mode
+all objects that travel
+along the input streams associated with the standard input are
+assumed to be of type character.
+Thus each character input (including newline)
+is treated by the evaluator as a string of length one (i.e.
+character is not a type in plucid). Note if the -c option is
+not used then the inputs are assumed to be a stream of Pop2
+data types separated by white space (i.e newline, tab, etc.)
+.IP "-s" 8
+Forces the evaluator into string output mode. In this mode
+all objects that travel along the output stream associated with
+the standard output are output as normal except for the
+following.
+When strings
+are output they are stripped of their quotes and
+escaped charaters (i.e. \\n for newline, \\33 for the character
+escape,...)
+are output as the
+characters themselves. In addition no white space separates
+succesive outputs as the would when the -s option is not used.
+.IP "-p" 8
+Used to inhibit prompting of input and outputs i.e. the
+evaluator does not print output(10): before producing the
+11th output. Similarly it does not input x(7): when asking for
+the 8th input for x.
+.IP "-t0" 8
+Print a message every time a request is made for a variable during
+execution of the program.
+.IP "-t1" 8
+Print a brief message about garabage collection each time that it occurs
+during execution of the program.
+.IP "-t2" 8
+Print more information about garbage collection each time it occurs.
+.IP "-t5" 8
+Print information about action on the display as it occurs.
+.IP "-t6" 8
+Print information each time a variable is defined by the evaluator.
+.IP "-t9" 8
+In its usual mode the interpreter reports all non-fatal
+runtime error on the standard error.
+When trace 9 is set these run time errors are
+discarded
+.IP "-t30" 8
+Prints a demand trace for variables. This is usually run to the
+exclusion of all other trace options. A record can be made of
+the trace by piping the standard error to a file.
+.IP "-t*" 8
+New traces ( and options) may be added to the system. To find out
+what they are interrupt the evaluator by using control-C and
+type h for help.
+.PP
+The evaluator can also be interrupted during execution to set or
+reset any of the traces, and to inquire as to how much memory is used
+up so far, and in what fashion.
+Regular UNIX commands can also be run, and then the program resumed.
+To interrupt the program, hit the interrupt key. Then the following commands
+are available to you:
+.IP "q" 8
+Quit the evaluator.
+.IP "c" 8
+Continue interpreting.
+.IP "sN" 8
+Set trace option number N.
+.IP "rN" 8
+Reset trace option number N.
+.IP "m" 8
+Request information about memory usage.
+.IP "!xxx" 8
+Execute xxx as a UNIX command.
+.IP "a" 8
+Print out the retirement age of variables. ( the garbage
+collector uses a retirement scheme to collect 'old' variables )
+.IP "d" 8
+dump the intermediate code.
+.IP "t" 8
+Print out a list of all the strings used in the program
+(including those entered dynamically ).
+.IP "h" 8
+Print out the current height and limits of the evaluators
+run time stacks.
+.PP
+For more information see the plucid programmers manual.
+.I lucid
+is a macro file that compiles and runs pLucid programs.
+
+.SH "SEE ALSO"
+A.Faustini, S.Matthews and  A. Yaghi.
+
+.I
+Arizona State University
+ Technical Report
+ Distributed Computing Group
+ The pLucid programmers manual
+ TR-83-004
+.SH BUGS
+.PP
+Written in 1980-3 !
+When too many UNIX filters are spawned by the filter function
+then there may be problems because of the limit on processes
+and pipes imposed by the UNIX operating system.
+.PP
+It is possible that when using filter there may be problems
+with the number of inputs needed by the child process to
+respond to the parent. The evaluator is demand driven, UNIX is
+data driven, therefore a UNIX process may require additional
+inputs (i.e it is data driven) to produce the required output.
+.PP
+
+Please report all bugs (however insignificant) to A. Faustini
+(i.e. mail faustini@vindalu.asu.edu)

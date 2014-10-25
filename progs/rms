@@ -1,0 +1,13 @@
+sqroot(avg(square(A)))
+        where square(X) = X*X;
+              avg(Y)    = mean where
+                               N = 1 fby N+1;
+                               mean = first Y fby mean + D;
+                               D = (next Y - mean) / (N+1);
+                               end;
+              sqroot(Z) = Approx asa Acc < 0.001 where
+                                 z is current Z;
+                                 Approx = z/2 fby ( Approx + z/Approx)/2;
+                                 Acc    = abs(square(Approx)-z);
+                                 end;
+         end

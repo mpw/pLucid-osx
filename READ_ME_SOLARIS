@@ -1,0 +1,44 @@
+Notes on the changes made to make this compile under Solaris
+------------------------------------------------------------
+
+1) Variable name "const" systematically changed to "cconst"
+   in the following files:
+        p2/cglobals.h
+        p2/main.c
+        p2/yylex.c
+        p3/cglobals.h
+        p3/main.c
+        p3/yylex.c
+        p4/cglobals.h
+        p4/main.c
+        p4/yylex.c
+        p5/cglobals.h
+        p5/main.c
+        p5/yylex.c
+
+2) Function name "remove" systematically changed to "rremove"
+   in the following file:
+        p4/walk.c
+
+3) "hashtable" array size increased by one to avoid range errors
+   (in p5/cglobals.h):
+        28c28
+        < SYMPTR hashtable[HASHSIZE];
+        ---
+        > SYMPTR hashtable[HASHSIZE+1];
+
+4) malloc added to avoid writing past end of "fname" string
+   (in p5/main.c):
+        60c60,62
+        <               sprintf(fname,"%s.i",fname);
+        ---
+        >               /* sprintf(fname,"%s.i",fname); */
+        >                 fname = malloc(strlen(fname+3));
+        >                 sprintf(fname,"%s.i",argv[1]);
+
+5) FILE * added to "fprintf", to avoid stupidity
+   (in evaluator/f_alg.c):
+        786c786
+        <       default: fprintf("unknown type\n");
+        ---
+        >       default: fprintf(stderr,"unknown type\n");
