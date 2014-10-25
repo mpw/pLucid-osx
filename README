@@ -34,7 +34,7 @@ Installing lucid
  In directory p1 change the third line of file main.c to some
  appropriate directory. It is currently
 
- STRING incdir = "/ud/cscfac/faustini/lu/lib";
+ STRING incdir = "/usr/local/lib/plucid";
 
  If you are running Berkley UNIX 4.2bsd or have the
  make facility then all you then
